@@ -1,7 +1,7 @@
 export default function handler(req, res) {
   if (req.method === 'POST') {
     const { title, date, tags, draft, content, summary } = req.body
-    const formattedTitle = title.replace(/\s+/g, '-');
+    const formattedTitle = title.replace(/\s+/g, '-')
 
     // Create new blog post with the received data
     const fs = require('fs')
