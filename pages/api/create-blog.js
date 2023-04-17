@@ -25,18 +25,18 @@ ${content}
 
 fs.writeFile(`./data/blog/${title}.mdx`, post, (err) => {
   if (err) {
-    console.error(err);
-    res.status(500).json({ message: 'Error creating blog post.' });
+    console.error(err)
+    res.status(500).json({ message: 'Error creating blog post.' })
   } else {
-    res.status(200).json({ message: 'Blog post created successfully!' });
+    res.status(200).json({ message: 'Blog post created successfully!' })
   }
-});
+})
 
   
-      res.status(200).json({ message: 'Blog post created successfully!' });
+      res.status(200).json({ message: 'Blog post created successfully!' })
     } else {
-      res.setHeader('Allow', ['POST']);
-      res.status(405).json({ message: `Method ${req.method} Not Allowed` });
+      res.setHeader('Allow', ['POST'])
+      res.status(405).json({ message: `Method ${req.method} Not Allowed` })
     }
   }
   

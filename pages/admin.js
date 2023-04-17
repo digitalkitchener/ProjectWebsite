@@ -1,37 +1,36 @@
-import { useState } from 'react';
-import axios from 'axios';
+import { useState } from 'react'
+import axios from 'axios'
 
 export default function Admin() {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [imgSrc, setImgSrc] = useState('');
-  const [href, setHref] = useState('');
-  const [type, setType] = useState('');
-  const [date, setDate] = useState('');
-  const [tags, setTags] = useState('');
-  const [draft, setDraft] = useState(false);  
-  const [summary, setSummary] = useState('');
-  const [content, setContent] = useState('');
+  const [title, setTitle] = useState('')
+  const [description, setDescription] = useState('')
+  const [imgSrc, setImgSrc] = useState('')
+  const [href, setHref] = useState('')
+  const [type, setType] = useState('')
+  const [date, setDate] = useState('')
+  const [tags, setTags] = useState('')
+  const [draft, setDraft] = useState(false)
+  const [summary, setSummary] = useState('')
+  const [content, setContent] = useState('')
 
 
   const handleSubmitProjects = async (event) => {
-    event.preventDefault();
-    const data = { title, description, imgSrc, href };
-    await axios.post('/api/update-data', data);
-    alert('Form submitted');
+    event.preventDefault()
+    const data = { title, description, imgSrc, href }
+    await axios.post('/api/update-data', data)
+    alert('Form submitted')
   };
 
   const handleSubmitBlog = async (event) => {
-    event.preventDefault();
-  
-    const formData = new FormData(event.target);
-    const title = formData.get('title');
-    const date = formData.get('date');
-    const tags = formData.get('tags').split(',').map(tag => tag.trim());
-    const draft = formData.get('draft') === 'on';
-    const content = formData.get('content');
-    const summary = formData.get('summary');
-  
+    event.preventDefault()
+
+    const formData = new FormData(event.target)
+    const title = formData.get('title')
+    const date = formData.get('date')
+    const tags = formData.get('tags').split(',').map(tag => tag.trim())
+    const draft = formData.get('draft') === 'on'
+    const content = formData.get('content')
+    const summary = formData.get('summary')
     const data = {
       title,
       date,
@@ -40,11 +39,11 @@ export default function Admin() {
       content,
       summary,
     };
-  
-    await axios.post('/api/create-blog', data);
-    alert('Form submitted');
+
+    await axios.post('/api/create-blog', data)
+    alert('Form submitted')
   };
-  
+
 
   return (
     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -112,6 +111,6 @@ export default function Admin() {
 
       </div>
     </div>
-  );
+  )
 }
 
