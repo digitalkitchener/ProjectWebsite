@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Auth } from 'aws-amplify'
 
@@ -15,17 +15,16 @@ export default function Admin() {
   const [content, setContent] = useState('')
 
   useEffect(() => {
-    checkUser()
-  }, [])
-
-  async function checkUser() {
-    try {
-      await Auth.currentAuthenticatedUser()
-      setLoggedIn(true)
-    } catch (err) {
-      console.log(err)
+    async function checkAuth() {
+      try {
+        await Auth.currentAuthenticatedUser()
+        setLoggedIn(true)
+      } catch {
+        setLoggedIn(false)
+      }
     }
-  }
+    checkAuth()
+  }, [])
 
   const handleSubmitProjects = async (event) => {
     event.preventDefault()
@@ -58,6 +57,19 @@ export default function Admin() {
 
     await axios.post('/api/create-blog', data)
     alert('Form submitted')
+  }
+
+  async function handleSignOut() {
+    try {
+      await Auth.signOut()
+      setLoggedIn(false)
+    } catch (error) {
+      console.log('error signing out: ', error)
+    }
+  }
+
+  if (!loggedIn) {
+    return <button onClick={() => Auth.federatedSignIn()}>Sign in</button>
   }
 
   return (
