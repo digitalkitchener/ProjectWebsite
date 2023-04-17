@@ -13,6 +13,19 @@ export default function Admin() {
   const [summary, setSummary] = useState('')
   const [content, setContent] = useState('')
 
+  useEffect(() => {
+    checkUser()
+  }, [])
+
+  async function checkUser() {
+    try {
+      await Auth.currentAuthenticatedUser()
+      setLoggedIn(true)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   const handleSubmitProjects = async (event) => {
     event.preventDefault()
     const data = { title, description, imgSrc, href }
