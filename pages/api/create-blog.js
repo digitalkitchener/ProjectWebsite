@@ -1,6 +1,7 @@
 export default function handler(req, res) {
   if (req.method === 'POST') {
     const { title, date, tags, draft, content, summary } = req.body
+    const formattedTitle = title.replace(/\s+/g, '-');
 
     // Create new blog post with the received data
     const fs = require('fs')
@@ -16,7 +17,7 @@ summary: ${summary}
 ${content}
 `
 
-    fs.writeFile(`./data/blog/${title}.mdx`, post, (err) => {
+    fs.writeFile(`./data/blog/${formattedTitle}.mdx`, post, (err) => {
       if (err) {
         console.error(err)
         res.status(500).json({ message: 'Error creating blog post.' })
