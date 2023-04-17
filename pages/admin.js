@@ -13,6 +13,7 @@ export default function Admin() {
   const [draft, setDraft] = useState(false)
   const [summary, setSummary] = useState('')
   const [content, setContent] = useState('')
+  const [loggedIn, setLoggedIn] = useState(false)
 
   useEffect(() => {
     async function checkAuth() {
