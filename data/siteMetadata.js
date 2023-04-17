@@ -2,7 +2,7 @@
 
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'City of Kitchener',
+  title: 'Digital Kitchener',
   author: 'Digital Kitchener Innovation Lab',
   headerTitle: '',
   description: 'A blog created with Next.js and Tailwind.css',

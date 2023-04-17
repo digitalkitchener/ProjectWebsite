@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-digitalkitchenerproj-staging-141201-authRole",
+      "UnauthRoleArn": "arn:aws:iam::136578765318:role/amplify-digitalkitchenerproj-staging-141201-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::136578765318:role/amplify-digitalkitchenerproj-staging-141201-authRole",
+      "Region": "ca-central-1",
+      "DeploymentBucketName": "amplify-digitalkitchenerproj-staging-141201-deployment",
+      "UnauthRoleName": "amplify-digitalkitchenerproj-staging-141201-unauthRole",
+      "StackName": "amplify-digitalkitchenerproj-staging-141201",
+      "StackId": "arn:aws:cloudformation:ca-central-1:136578765318:stack/amplify-digitalkitchenerproj-staging-141201/d610be40-d3bb-11ed-a9a4-0256a766ea02",
+      "AmplifyAppId": "d2qq4w3962ezrh"
+    },
+    "categories": {
+      "auth": {
+        "DigitalKitchenerProjectWebsite": {}
+      }
+    }
+  }
+}
