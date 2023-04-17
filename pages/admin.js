@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
+import { Auth } from 'aws-amplify'
 
 export default function Admin() {
   const [title, setTitle] = useState('')
