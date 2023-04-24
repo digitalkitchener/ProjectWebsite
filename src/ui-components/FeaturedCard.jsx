@@ -5,11 +5,11 @@
  **************************************************************************/
 
 /* eslint-disable */
-import * as React from 'react'
-import { getOverrideProps } from '@aws-amplify/ui-react/internal'
-import { Flex, Image, Text, View } from '@aws-amplify/ui-react'
+import * as React from "react";
+import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import { Flex, Image, Text, View } from "@aws-amplify/ui-react";
 export default function FeaturedCard(props) {
-  const { overrides, ...rest } = props
+  const { overrides, ...rest } = props;
   return (
     <View
       width="1216px"
@@ -20,7 +20,7 @@ export default function FeaturedCard(props) {
       justifyContent="unset"
       position="relative"
       padding="0px 0px 0px 0px"
-      {...getOverrideProps(overrides, 'FeaturedCard')}
+      {...getOverrideProps(overrides, "FeaturedCard")}
       {...rest}
     >
       <Image
@@ -38,7 +38,7 @@ export default function FeaturedCard(props) {
         borderRadius="12px"
         padding="0px 0px 0px 0px"
         objectFit="cover"
-        {...getOverrideProps(overrides, 'Image')}
+        {...getOverrideProps(overrides, "Image")}
       ></Image>
       <Flex
         gap="24px"
@@ -58,7 +58,7 @@ export default function FeaturedCard(props) {
         borderRadius="12px"
         padding="39px 39px 39px 39px"
         backgroundColor="rgba(255,255,255,1)"
-        {...getOverrideProps(overrides, 'Content')}
+        {...getOverrideProps(overrides, "Content")}
       >
         <Flex
           gap="16px"
@@ -71,9 +71,13 @@ export default function FeaturedCard(props) {
           alignSelf="stretch"
           position="relative"
           padding="0px 0px 0px 0px"
-          {...getOverrideProps(overrides, 'Heading')}
+          {...getOverrideProps(overrides, "Heading")}
         >
-          <Flex width="unset" height="unset" {...getOverrideProps(overrides, 'a-badge')}></Flex>
+          <Flex
+            width="unset"
+            height="unset"
+            {...getOverrideProps(overrides, "a-badge")}
+          ></Flex>
           <Text
             fontFamily="Work Sans"
             fontSize="36px"
@@ -94,7 +98,7 @@ export default function FeaturedCard(props) {
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
             children="The Impact of Technology on the Workplace: How Technology is Changing"
-            {...getOverrideProps(overrides, 'Title')}
+            {...getOverrideProps(overrides, "Title")}
           ></Text>
         </Flex>
         <Flex
@@ -107,9 +111,13 @@ export default function FeaturedCard(props) {
           shrink="0"
           position="relative"
           padding="0px 0px 0px 0px"
-          {...getOverrideProps(overrides, 'Short Info')}
+          {...getOverrideProps(overrides, "Short Info")}
         >
-          <Flex width="unset" height="unset" {...getOverrideProps(overrides, 'a-author')}></Flex>
+          <Flex
+            width="unset"
+            height="unset"
+            {...getOverrideProps(overrides, "a-author")}
+          ></Flex>
           <Text
             fontFamily="Work Sans"
             fontSize="16px"
@@ -129,10 +137,10 @@ export default function FeaturedCard(props) {
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
             children="August 20, 2022"
-            {...getOverrideProps(overrides, 'Date')}
+            {...getOverrideProps(overrides, "Date")}
           ></Text>
         </Flex>
       </Flex>
     </View>
-  )
+  );
 }

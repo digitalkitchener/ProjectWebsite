@@ -5,11 +5,11 @@
  **************************************************************************/
 
 /* eslint-disable */
-import * as React from 'react'
-import { getOverrideProps } from '@aws-amplify/ui-react/internal'
-import { Flex, Image, Text } from '@aws-amplify/ui-react'
+import * as React from "react";
+import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import { Flex, Image, Text } from "@aws-amplify/ui-react";
 export default function Article(props) {
-  const { overrides, ...rest } = props
+  const { overrides, ...rest } = props;
   return (
     <Flex
       gap="32px"
@@ -20,7 +20,7 @@ export default function Article(props) {
       alignItems="center"
       position="relative"
       padding="0px 0px 0px 0px"
-      {...getOverrideProps(overrides, 'Article')}
+      {...getOverrideProps(overrides, "Article")}
       {...rest}
     >
       <Flex
@@ -34,7 +34,7 @@ export default function Article(props) {
         alignSelf="stretch"
         position="relative"
         padding="0px 0px 0px 0px"
-        {...getOverrideProps(overrides, 'Blog Info')}
+        {...getOverrideProps(overrides, "Blog Info")}
       >
         <Flex
           gap="16px"
@@ -46,9 +46,13 @@ export default function Article(props) {
           shrink="0"
           position="relative"
           padding="0px 0px 0px 0px"
-          {...getOverrideProps(overrides, 'Heading')}
+          {...getOverrideProps(overrides, "Heading")}
         >
-          <Flex width="unset" height="unset" {...getOverrideProps(overrides, 'a-badge')}></Flex>
+          <Flex
+            width="unset"
+            height="unset"
+            {...getOverrideProps(overrides, "a-badge")}
+          ></Flex>
           <Text
             fontFamily="Work Sans"
             fontSize="36px"
@@ -69,7 +73,7 @@ export default function Article(props) {
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
             children="The Impact of Technology on the Workplace: How Technology is Changing"
-            {...getOverrideProps(overrides, 'Title210122013')}
+            {...getOverrideProps(overrides, "Title210122013")}
           ></Text>
         </Flex>
         <Flex
@@ -82,9 +86,13 @@ export default function Article(props) {
           shrink="0"
           position="relative"
           padding="0px 0px 0px 0px"
-          {...getOverrideProps(overrides, 'Short Info')}
+          {...getOverrideProps(overrides, "Short Info")}
         >
-          <Flex width="unset" height="unset" {...getOverrideProps(overrides, 'a-author')}></Flex>
+          <Flex
+            width="unset"
+            height="unset"
+            {...getOverrideProps(overrides, "a-author")}
+          ></Flex>
           <Text
             fontFamily="Work Sans"
             fontSize="14px"
@@ -104,7 +112,7 @@ export default function Article(props) {
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
             children="August 20, 2022"
-            {...getOverrideProps(overrides, 'Date')}
+            {...getOverrideProps(overrides, "Date")}
           ></Text>
         </Flex>
       </Flex>
@@ -121,7 +129,7 @@ export default function Article(props) {
         borderRadius="12px"
         padding="0px 0px 0px 0px"
         objectFit="cover"
-        {...getOverrideProps(overrides, 'Image')}
+        {...getOverrideProps(overrides, "Image")}
       ></Image>
       <Flex
         gap="10px"
@@ -134,7 +142,7 @@ export default function Article(props) {
         alignSelf="stretch"
         position="relative"
         padding="0px 0px 0px 0px"
-        {...getOverrideProps(overrides, 'Para210122018')}
+        {...getOverrideProps(overrides, "Para210122018")}
       >
         <Text
           fontFamily="Source Serif Pro"
@@ -155,7 +163,7 @@ export default function Article(props) {
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
           children="Traveling is an enriching experience that opens up new horizons, exposes us to different cultures, and creates memories that last a lifetime. However, traveling can also be stressful and overwhelming, especially if you don't plan and prepare adequately. In this blog article, we'll explore tips and tricks for a memorable journey and how to make the most of your travels.&#xA;&#xA;One of the most rewarding aspects of traveling is immersing yourself in the local culture and customs. This includes trying local cuisine, attending cultural events and festivals, and interacting with locals. Learning a few phrases in the local language can also go a long way in making connections and showing respect."
-          {...getOverrideProps(overrides, 'Article210122019')}
+          {...getOverrideProps(overrides, "Article210122019")}
         ></Text>
       </Flex>
       <Flex
@@ -169,7 +177,7 @@ export default function Article(props) {
         alignSelf="stretch"
         position="relative"
         padding="0px 0px 0px 0px"
-        {...getOverrideProps(overrides, 'Para210122020')}
+        {...getOverrideProps(overrides, "Para210122020")}
       >
         <Text
           fontFamily="Work Sans"
@@ -191,7 +199,7 @@ export default function Article(props) {
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
           children="Research Your Destination"
-          {...getOverrideProps(overrides, 'Title210122021')}
+          {...getOverrideProps(overrides, "Title210122021")}
         ></Text>
         <Text
           fontFamily="Source Serif Pro"
@@ -213,7 +221,7 @@ export default function Article(props) {
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
           children="Before embarking on your journey, take the time to research your destination. This includes understanding the local culture, customs, and laws, as well as identifying top attractions, restaurants, and accommodations. Doing so will help you navigate your destination with confidence and avoid any cultural faux pas.&#xA;&#xA;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In hendrerit gravida rutrum quisque non tellus orci ac auctor. Mi ipsum faucibus vitae aliquet nec ullamcorper sit amet. Aenean euismod elementum nisi quis eleifend quam adipiscing vitae. Viverra adipiscing at in tellus."
-          {...getOverrideProps(overrides, 'Article210122022')}
+          {...getOverrideProps(overrides, "Article210122022")}
         ></Text>
       </Flex>
       <Flex
@@ -227,7 +235,7 @@ export default function Article(props) {
         alignSelf="stretch"
         position="relative"
         padding="0px 0px 0px 0px"
-        {...getOverrideProps(overrides, 'Para210122023')}
+        {...getOverrideProps(overrides, "Para210122023")}
       >
         <Text
           fontFamily="Work Sans"
@@ -249,7 +257,7 @@ export default function Article(props) {
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
           children="Plan Your Itinerary"
-          {...getOverrideProps(overrides, 'Title210122024')}
+          {...getOverrideProps(overrides, "Title210122024")}
         ></Text>
         <Text
           fontFamily="Source Serif Pro"
@@ -271,9 +279,9 @@ export default function Article(props) {
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
           children="While it's essential to leave room for spontaneity and unexpected adventures, having a rough itinerary can help you make the most of your time and budget. Identify the must-see sights and experiences and prioritize them according to your interests and preferences. This will help you avoid overscheduling and ensure that you have time to relax and enjoy your journey.&#xA;&#xA;Vitae sapien pellentesque habitant morbi tristique. Luctus venenatis lectus magna fringilla. Nec ullamcorper sit amet risus nullam eget felis. Tincidunt arcu non sodales neque sodales ut etiam sit amet."
-          {...getOverrideProps(overrides, 'Article210122025')}
+          {...getOverrideProps(overrides, "Article210122025")}
         ></Text>
       </Flex>
     </Flex>
-  )
+  );
 }

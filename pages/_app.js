@@ -3,6 +3,12 @@ import '@/css/prism.css'
 import 'katex/dist/katex.css'
 // import '@/css/docsearch.css' // Uncomment if using algolia docsearch
 // import '@docsearch/css' // Uncomment if using algolia docsearch
+import { Amplify, Auth } from 'aws-amplify'
+import awsconfig from '../src/aws-exports'
+Amplify.configure(awsconfig)
+
+import { withAuthenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
 
 import { ThemeProvider } from 'next-themes'
 import Head from 'next/head'
@@ -10,7 +16,8 @@ import siteMetadata from '@/data/siteMetadata'
 import { Analytics } from 'pliny/analytics'
 import { SearchProvider } from 'pliny/search'
 import LayoutWrapper from '@/components/LayoutWrapper'
-export default function App({ Component, pageProps }) {
+
+function App({ Component, pageProps, signOut }) {
   return (
     <ThemeProvider attribute="class" defaultTheme={siteMetadata.theme}>
       <Head>
@@ -18,6 +25,7 @@ export default function App({ Component, pageProps }) {
       </Head>
       <Analytics analyticsConfig={siteMetadata.analytics} />
       <LayoutWrapper>
+      <button onClick={signOut}>Sign out</button>
         <SearchProvider searchConfig={siteMetadata.search}>
           <Component {...pageProps} />
         </SearchProvider>
@@ -25,3 +33,5 @@ export default function App({ Component, pageProps }) {
     </ThemeProvider>
   )
 }
+
+export default withAuthenticator(App)
