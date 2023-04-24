@@ -7,8 +7,8 @@ import { Amplify, Auth } from 'aws-amplify'
 import awsconfig from '../src/aws-exports'
 Amplify.configure(awsconfig)
 
-import { withAuthenticator } from '@aws-amplify/ui-react';
-import '@aws-amplify/ui-react/styles.css';
+import { withAuthenticator } from '@aws-amplify/ui-react'
+import '@aws-amplify/ui-react/styles.css'
 
 import { ThemeProvider } from 'next-themes'
 import Head from 'next/head'
@@ -25,7 +25,12 @@ function App({ Component, pageProps, signOut }) {
       </Head>
       <Analytics analyticsConfig={siteMetadata.analytics} />
       <LayoutWrapper>
-      <button onClick={signOut}>Sign out</button>
+        <button
+          onClick={signOut}
+          class="rounded border border-red-500 bg-transparent px-4 py-2 font-semibold text-red-500 hover:border-transparent hover:bg-red-500 hover:text-white"
+        >
+          Sign out
+        </button>
         <SearchProvider searchConfig={siteMetadata.search}>
           <Component {...pageProps} />
         </SearchProvider>
