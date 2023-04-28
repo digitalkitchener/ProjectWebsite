@@ -2,14 +2,6 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Auth } from 'aws-amplify'
 
-// import Amplify from 'aws-amplify'
-
-// Amplify.configure({
-//   aws_cognito_region: 'ca-central-1',
-//   aws_user_pools_id: 'ca-central-1_kJ0u1BTqo',
-//   aws_user_pools_web_client_id: '4sansdsh2cn693r13s0lfpvvu2',
-// })
-
 function Admin() {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
@@ -22,6 +14,17 @@ function Admin() {
   const [summary, setSummary] = useState('')
   const [content, setContent] = useState('')
   const [loggedIn, setLoggedIn] = useState(false)
+  const [errorMsg, setErrorMsg] = useState('');
+
+
+  const validateDate = (dateString) => {
+    const pattern = /^\d{4}-\d{2}-\d{2}$/;
+    if (!pattern.test(dateString)) {
+      setErrorMsg('Date should be in format YYYY-MM-DD');
+      return false;
+    }
+    return true;
+  };  
 
   useEffect(() => {
     async function checkAuth() {
@@ -43,18 +46,23 @@ function Admin() {
   }
 
   const handleSubmitBlog = async (event) => {
-    event.preventDefault()
-
-    const formData = new FormData(event.target)
-    const title = formData.get('title')
-    const date = formData.get('date')
+    event.preventDefault();
+  
+    const formData = new FormData(event.target);
+    const title = formData.get("title");
+    const date = formData.get("date");
     const tags = formData
-      .get('tags')
-      .split(',')
-      .map((tag) => tag.trim())
-    const draft = formData.get('draft') === 'on'
-    const content = formData.get('content')
-    const summary = formData.get('summary')
+      .get("tags")
+      .split(",")
+      .map((tag) => tag.trim());
+    const draft = formData.get("draft") === "on";
+    const content = formData.get("content");
+    const summary = formData.get("summary");
+  
+    if (!validateDate(date)) {
+      return;
+    }
+  
     const data = {
       title,
       date,
@@ -62,12 +70,12 @@ function Admin() {
       draft,
       content,
       summary,
-    }
-
-    await axios.post('/api/create-blog', data)
-    alert('Form submitted')
-  }
-
+    };
+  
+    await axios.post("/api/create-blog", data);
+    alert("Form submitted");
+  };
+  
   async function handleSignOut() {
     try {
       await Auth.signOut()
@@ -83,75 +91,101 @@ function Admin() {
 
   return (
     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-      <div style={{ width: '48%' }}>
-        <h2>Add project</h2>
-        <form onSubmit={handleSubmitProjects}>
-          <label>
-            Title:
-            <input type="text" name="title" onChange={(e) => setTitle(e.target.value)} />
-          </label>
-          <br />
-          <label>
-            Description:
-            <textarea
-              name="description"
-              rows={4}
-              cols={50}
-              onChange={(e) => setDescription(e.target.value)}
-            ></textarea>
-          </label>
-          <br />
-          <label>
-            Image source:
-            <input type="text" name="imgSrc" onChange={(e) => setImgSrc(e.target.value)} />
-          </label>
-          <br />
-          <label>
-            Link(Has to link to an existing blog post):
-            <input type="text" name="href" onChange={(e) => setHref(e.target.value)} />
-          </label>
-          <br />
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-      <div style={{ width: '48%' }}>
-        <h2>Create new blog post</h2>
-        <form onSubmit={handleSubmitBlog}>
-          <label>
-            Title:
-            <input type="text" name="title" onChange={(e) => setTitle(e.target.value)} />
-          </label>
-          <br />
-          <label>
-            Date:
-            <input type="text" name="date" onChange={(e) => setDate(e.target.value)} />
-          </label>
-          <br />
-          <label>
-            Tags:
-            <input type="text" name="tags" onChange={(e) => setTags(e.target.value)} />
-          </label>
-          <br />
-          <label>
-            Draft:
-            <input type="checkbox" name="draft" onChange={(e) => setDraft(e.target.checked)} />
-          </label>
-          <br />
-          <label>
-            Summary:
-            <input type="text" name="summary" onChange={(e) => setSummary(e.target.value)} />
-          </label>
-          <br />
-          <label>
-            Content:
-            <textarea name="content" onChange={(e) => setContent(e.target.value)}></textarea>
-          </label>
-          <br />
-          <button type="submit">Submit</button>
-        </form>
-      </div>
+    <div style={{ width: '48%' }}>
+      <h2>Add project</h2>
+      <form onSubmit={handleSubmitProjects}>
+        <label style={{ fontWeight: 'bold', paddingBottom: '10px' }}>
+          Title:
+          <input type="text" name="title" style={{ paddingLeft: '10px' }} onChange={(e) => setTitle(e.target.value)} />
+        </label>
+        <br />
+        <label style={{ fontWeight: 'bold', paddingBottom: '10px' }}>
+          Description:
+          <textarea
+            name="description"
+            rows={4}
+            cols={50}
+            style={{ paddingLeft: '10px' }}
+            onChange={(e) => setDescription(e.target.value)}
+          ></textarea>
+        </label>
+        <br />
+        <label style={{ fontWeight: 'bold', paddingBottom: '10px' }}>
+          Image source:
+          <input type="text" name="imgSrc" style={{ paddingLeft: '10px' }} onChange={(e) => setImgSrc(e.target.value)} />
+        </label>
+        <br />
+        <label style={{ fontWeight: 'bold', paddingBottom: '10px' }}>
+          Link (Has to link to an existing blog post):
+          <input type="text" name="href" style={{ paddingLeft: '10px' }} onChange={(e) => setHref(e.target.value)} />
+        </label>
+        <br />
+        <button
+          type="submit"
+          style={{
+            backgroundColor: '#01796f',
+            color: '#FFFFFF',
+            borderRadius: '20px',
+            padding: '10px 20px',
+            border: 'none',
+            cursor: 'pointer',
+            marginTop: '10px',
+          }}
+        >
+          Submit
+        </button>
+      </form>
     </div>
+    <div style={{ width: '48%' }}>
+  <h2>Create new blog post</h2>
+  <form onSubmit={handleSubmitBlog}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+      <label style={{ fontWeight: 'bold' }}>
+        Title:
+        <input type="text" name="title" value={title} onChange={(e) => setTitle(e.target.value)} />
+      </label>
+      <label style={{ fontWeight: 'bold' }}>
+  Date:
+  <input type="text" name="date" value={date} onChange={(e) => setDate(e.target.value)} />
+</label>
+{errorMsg && <div style={{ color: 'red' }}>{errorMsg}</div>}
+      <label style={{ fontWeight: 'bold' }}>
+        Tags:
+        <input type="text" name="tags" value={tags} onChange={(e) => setTags(e.target.value)} />
+      </label>
+      <label style={{ fontWeight: 'bold' }}>
+        Draft:
+        <input type="checkbox" name="draft" checked={draft} onChange={(e) => setDraft(e.target.checked)} />
+      </label>
+      <label style={{ fontWeight: 'bold' }}>
+        Summary:
+        <input type="text" name="summary" value={summary} onChange={(e) => setSummary(e.target.value)} />
+      </label>
+      <label style={{ fontWeight: 'bold' }}>
+        Content:
+        <textarea name="content"             rows={4}
+            cols={50} value={content} onChange={(e) => setContent(e.target.value)}></textarea>
+      </label>
+      <button
+        type="submit"
+        style={{
+          backgroundColor: '#01796f',
+          color: '#FFFFFF',
+          borderRadius: '20px',
+          padding: '10px 20px',
+          border: 'none',
+          cursor: 'pointer',
+          width: '100px'
+        }}
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
+</div>
   )
+  
 }
 
 export default Admin

@@ -220,3 +220,13 @@ Using the template? Support this effort by giving a star on GitHub, sharing your
 ## Licence
 
 [MIT](https://github.com/timlrx/tailwind-nextjs-starter-blog/blob/master/LICENSE) © [Timothy Lin](https://www.timrlx.com)
+
+## Daniel's changes
+
+Everything above this is for the template of the website I took from online. After downloading the site's data, I added a new page called "admin" where there are two html forms being rendered, one for creating a new blog post, the other for adding a new project to the project page. You can type /admin in the url and it should bring you to the correct page after logging into the site with your email.
+
+A few things to note
+- Do not submit anything in dark mode, when you enter dark mode the text dissapears from the html forms, just always submit forms in light mode.
+- when adding a project, you have to link the page to an existing blog post. The description text input in the form is only for the brief summary you see on the cards on the project page. For example, the href should look like '/blog/Virtual-Space' (without the quotations).
+- This is related to the note above, when you create a new blog post, whatever you named the title, the file will have added '-' between each word, make sure the link matches when you add a new project. For example, I named the blog 'Virtual Space', but when adding the project, I had to make sure the href was '/blog/Virtual-Space' (without the quotations).
+- The only way to delete blogs or projects from their respective pages is to delete them from the file itself. All blogs are in independent mdx files (they are all kept in my-blog>data>blog), move the one you don't want to trash and it will dissapear from the website. The projects are all in one export line (my-blog>data>projectsData.js), each one contained in a seperate  '{}'. To delete one, just remove the related '{}' with everything in it and make sure there is a ',' between each other '{}'.
