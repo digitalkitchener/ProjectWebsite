@@ -5,11 +5,11 @@
  **************************************************************************/
 
 /* eslint-disable */
-import * as React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Flex, Image, Text } from "@aws-amplify/ui-react";
+import * as React from 'react'
+import { getOverrideProps } from '@aws-amplify/ui-react/internal'
+import { Flex, Image, Text } from '@aws-amplify/ui-react'
 export default function PostCard(props) {
-  const { overrides, ...rest } = props;
+  const { overrides, ...rest } = props
   return (
     <Flex
       gap="16px"
@@ -24,7 +24,7 @@ export default function PostCard(props) {
       borderRadius="12px"
       padding="15px 15px 15px 15px"
       backgroundColor="rgba(255,255,255,1)"
-      {...getOverrideProps(overrides, "PostCard")}
+      {...getOverrideProps(overrides, 'PostCard')}
       {...rest}
     >
       <Image
@@ -39,7 +39,7 @@ export default function PostCard(props) {
         borderRadius="6px"
         padding="0px 0px 0px 0px"
         objectFit="cover"
-        {...getOverrideProps(overrides, "Rectangle 38")}
+        {...getOverrideProps(overrides, 'Rectangle 38')}
       ></Image>
       <Flex
         gap="20px"
@@ -52,7 +52,7 @@ export default function PostCard(props) {
         alignSelf="stretch"
         position="relative"
         padding="8px 8px 8px 8px"
-        {...getOverrideProps(overrides, "Content")}
+        {...getOverrideProps(overrides, 'Content')}
       >
         <Flex
           gap="16px"
@@ -65,13 +65,9 @@ export default function PostCard(props) {
           alignSelf="stretch"
           position="relative"
           padding="0px 0px 0px 0px"
-          {...getOverrideProps(overrides, "Heading")}
+          {...getOverrideProps(overrides, 'Heading')}
         >
-          <Flex
-            width="unset"
-            height="unset"
-            {...getOverrideProps(overrides, "a-badge")}
-          ></Flex>
+          <Flex width="unset" height="unset" {...getOverrideProps(overrides, 'a-badge')}></Flex>
           <Text
             fontFamily="Work Sans"
             fontSize="24px"
@@ -92,7 +88,7 @@ export default function PostCard(props) {
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
             children="The Impact of Technology on the Workplace: How Technology is Changing"
-            {...getOverrideProps(overrides, "Title")}
+            {...getOverrideProps(overrides, 'Title')}
           ></Text>
         </Flex>
         <Flex
@@ -105,13 +101,9 @@ export default function PostCard(props) {
           shrink="0"
           position="relative"
           padding="0px 0px 0px 0px"
-          {...getOverrideProps(overrides, "Short Info")}
+          {...getOverrideProps(overrides, 'Short Info')}
         >
-          <Flex
-            width="unset"
-            height="unset"
-            {...getOverrideProps(overrides, "a-author")}
-          ></Flex>
+          <Flex width="unset" height="unset" {...getOverrideProps(overrides, 'a-author')}></Flex>
           <Text
             fontFamily="Work Sans"
             fontSize="16px"
@@ -131,10 +123,10 @@ export default function PostCard(props) {
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
             children="August 20, 2022"
-            {...getOverrideProps(overrides, "Date")}
+            {...getOverrideProps(overrides, 'Date')}
           ></Text>
         </Flex>
       </Flex>
     </Flex>
-  );
+  )
 }

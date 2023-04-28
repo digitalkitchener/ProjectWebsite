@@ -4,9 +4,9 @@
  * Any changes to this file will be overwritten when running amplify pull. *
  **************************************************************************/
 
-export { default as Navbar } from "./Navbar";
-export { default as PostCard } from "./PostCard";
-export { default as FeaturedCard } from "./FeaturedCard";
-export { default as Footer } from "./Footer";
-export { default as Article } from "./Article";
-export { default as studioTheme } from "./studioTheme";
+export { default as Navbar } from './Navbar'
+export { default as PostCard } from './PostCard'
+export { default as FeaturedCard } from './FeaturedCard'
+export { default as Footer } from './Footer'
+export { default as Article } from './Article'
+export { default as studioTheme } from './studioTheme'
