@@ -17,5 +17,23 @@
         "digitalkitchenerproje5999530": {}
       }
     }
+  },
+  "website": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-digitalkitchenerproj-website-113951-authRole",
+      "UnauthRoleArn": "arn:aws:iam::136578765318:role/amplify-digitalkitchenerproj-website-113951-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::136578765318:role/amplify-digitalkitchenerproj-website-113951-authRole",
+      "Region": "ca-central-1",
+      "DeploymentBucketName": "amplify-digitalkitchenerproj-website-113951-deployment",
+      "UnauthRoleName": "amplify-digitalkitchenerproj-website-113951-unauthRole",
+      "StackName": "amplify-digitalkitchenerproj-website-113951",
+      "StackId": "arn:aws:cloudformation:ca-central-1:136578765318:stack/amplify-digitalkitchenerproj-website-113951/8dffdc80-e9c8-11ed-bc51-067c53985418",
+      "AmplifyAppId": "d2qq4w3962ezrh"
+    },
+    "categories": {
+      "auth": {
+        "digitalkitchenerproje5999530": {}
+      }
+    }
   }
 }
