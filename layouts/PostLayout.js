@@ -18,7 +18,7 @@ const postDateTemplate = {
   day: 'numeric',
 }
 export default function PostLayout({ content, authorDetails, next, prev, children }) {
-  const { filePath, path, slug, date, title, tags } = content
+  const { filePath, path, slug, date, title, tags, q1, q2, q3, q4, images } = content
   const basePath = path.split('/')[0]
   const [loadComments, setLoadComments] = useState(false)
   return (
@@ -130,7 +130,49 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               </div>
             </footer>
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
-              <div className="prose max-w-none pb-8 pt-10 dark:prose-dark">{children}</div>
+              <div className="prose max-w-none pb-8 pt-10 dark:prose-dark">
+                <p class="mb-3 text-xl font-bold leading-8 tracking-tight">What we did:</p>
+                <div className="prose mb-3 max-w-none text-gray-500 dark:text-gray-400">
+                  {q1.map((q1, index) => (
+                    <p key={index}>{q1}</p>
+                  ))}
+                </div>
+                {/* <p className="prose mb-3 max-w-none text-gray-500 dark:text-gray-400">{q1}</p> */}
+                <p class="mb-3 text-xl font-bold leading-8 tracking-tight">Why we did it:</p>
+                <div className="prose mb-3 max-w-none text-gray-500 dark:text-gray-400">
+                  {q2.map((q2, index) => (
+                    <p key={index}>{q2}</p>
+                  ))}
+                </div>
+                <p class="mb-3 text-xl font-bold leading-8 tracking-tight">What tech we used:</p>
+                <div className="prose mb-3 max-w-none text-gray-500 dark:text-gray-400">
+                  {q3.map((q3, index) => (
+                    <p key={index}>{q3}</p>
+                  ))}
+                </div>
+                <p class="mb-3 text-xl font-bold leading-8 tracking-tight">What we learned:</p>
+                <div className="prose mb-3 max-w-none text-gray-500 dark:text-gray-400">
+                  {q4.map((q4, index) => (
+                    <p key={index}>{q4}</p>
+                  ))}
+                </div>
+                {/* <p class="mb-3 text-xl font-bold leading-8 tracking-tight">More Information:</p> */}
+                <div class="grid grid-cols-2 gap-4">
+                  {images.map((image, index) => (
+                  
+                    <Image
+                      alt="Image preview"
+                      src={image}
+                      className="object-cover object-center md:h-72% lg:h-100%"
+                      width={300}
+                      height={306}
+                    />
+                  
+                ))}
+                </div>
+                
+                <div className="prose mb-3 max-w-none text-gray-500 dark:text-gray-400">{children}</div>
+                </div>
               <div className="pb-6 pt-6 text-sm text-gray-700 dark:text-gray-300">
                 {/* <Link href={discussUrl(path)} rel="nofollow">
                   Discuss on Twitter

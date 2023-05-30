@@ -1,6 +1,6 @@
 export default function handler(req, res) {
   if (req.method === 'POST') {
-    const { title, date, tags, draft, content, summary } = req.body
+    const { title, date, tags, draft, content, summary, q1, q2, q3, q4, images } = req.body
     const formattedTitle = title.replace(/\s+/g, '-')
 
     // Create new blog post with the received data
@@ -12,6 +12,11 @@ date: '${date}'
 tags: [${tags.map((tag) => `'${tag}'`).join(', ')}]
 draft: ${draft}
 summary: ${summary}
+q1: [${q1.map((q1s) => `'${q1s}'`).join(', ')}]
+q2: [${q2.map((q2s) => `'${q2s}'`).join(', ')}]
+q3: [${q3.map((q3s) => `'${q3s}'`).join(', ')}]
+q4: [${q4.map((q4s) => `'${q4s}'`).join(', ')}]
+images: [${images}]
 ---
 
 ${content}

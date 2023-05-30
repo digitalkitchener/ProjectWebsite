@@ -89,6 +89,30 @@ export const Blog = defineDocumentType(() => ({
     canonicalUrl: {
       type: 'string',
     },
+    q1: {
+      type: 'list',
+      of: {
+        type: 'string',
+      },
+    },
+    q2: {
+      type: 'list',
+      of: {
+        type: 'string',
+      },
+    },
+    q3: {
+      type: 'list',
+      of: {
+        type: 'string',
+      },
+    },
+    q4: {
+      type: 'list',
+      of: {
+        type: 'string',
+      },
+    },
   },
   computedFields,
 }))
