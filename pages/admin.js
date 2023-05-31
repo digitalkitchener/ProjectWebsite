@@ -4,11 +4,8 @@ import { Auth } from 'aws-amplify'
 
 import dynamic from 'next/dynamic'
 
-const JoditEditor = dynamic(() => import('jodit-react'), { ssr: false })
-
 import ReactDOM from 'react-dom'
 import { useRef, useMemo } from 'react'
-// import JoditEditor from 'jodit-react';      //try doing lazy loading
 import HTMLReactParser from 'html-react-parser'
 
 function Admin() {
@@ -297,16 +294,6 @@ function Admin() {
                 onChange={(e) => setImgSrc(e.target.value)}
               />
             </label>
-            {/* <label  style={{ fontWeight: 'bold' }} class="mb-3 text-2xl font-bold leading-8 tracking-tight">
-              JODIT EDITOR
-              <JoditEditor
-                ref={editor}
-                value={newcontent}
-                config={config}
-                onChange={(NewContent) => setNewcontent(NewContent)}
-              />
-            </label>
-             */}
             <button
               type="submit"
               style={{
