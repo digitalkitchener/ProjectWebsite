@@ -53,6 +53,4 @@ export default [
     imgSrc: '',
     href: '/blog/Conversational-Knowledge-Base',
   },
-  { title: 'new', description: 'summ', imgSrc: '', href: '/blog/new' },
-  { title: 'new', description: 'summ', imgSrc: '', href: '/blog/new' },
 ]
