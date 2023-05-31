@@ -159,20 +159,20 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                 {/* <p class="mb-3 text-xl font-bold leading-8 tracking-tight">More Information:</p> */}
                 <div class="grid grid-cols-2 gap-4">
                   {images.map((image, index) => (
-                  
                     <Image
                       alt="Image preview"
                       src={image}
-                      className="object-cover object-center md:h-72% lg:h-100%"
+                      className="md:h-72% lg:h-100% object-cover object-center"
                       width={300}
                       height={306}
                     />
-                  
-                ))}
+                  ))}
                 </div>
-                
-                <div className="prose mb-3 max-w-none text-gray-500 dark:text-gray-400">{children}</div>
+
+                <div className="prose mb-3 max-w-none text-gray-500 dark:text-gray-400">
+                  {children}
                 </div>
+              </div>
               <div className="pb-6 pt-6 text-sm text-gray-700 dark:text-gray-300">
                 {/* <Link href={discussUrl(path)} rel="nofollow">
                   Discuss on Twitter

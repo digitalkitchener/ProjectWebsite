@@ -2,18 +2,14 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Auth } from 'aws-amplify'
 
-import dynamic from 'next/dynamic';
- 
-const JoditEditor = dynamic(
-  () => import('jodit-react'),
-  { ssr: false}
-)
+import dynamic from 'next/dynamic'
 
-import ReactDOM from 'react-dom';
-import { useRef, useMemo } from 'react';
+const JoditEditor = dynamic(() => import('jodit-react'), { ssr: false })
+
+import ReactDOM from 'react-dom'
+import { useRef, useMemo } from 'react'
 // import JoditEditor from 'jodit-react';      //try doing lazy loading
-import HTMLReactParser from 'html-react-parser';
-
+import HTMLReactParser from 'html-react-parser'
 
 function Admin() {
   const [title, setTitle] = useState('')
@@ -31,7 +27,7 @@ function Admin() {
   const [q3, setQ3] = useState('')
   const [q4, setQ4] = useState('')
   const [images, setImages] = useState('')
-  
+
   // const editor = useRef(null)
   // const [newcontent, setNewcontent] = useState('')
   // const config = {}
@@ -56,7 +52,6 @@ function Admin() {
     }
     checkAuth()
   }, [])
-
 
   const handleSubmitBlog = async (event) => {
     event.preventDefault()
@@ -88,9 +83,7 @@ function Admin() {
       .get('q4')
       .split('\\n')
       .map((q4s) => q4s.trim())
-    const images = formData
-      .get('images')
-      .split(' ')
+    const images = formData.get('images').split(' ')
 
     if (!validateDate(date)) {
       return
@@ -141,20 +134,26 @@ function Admin() {
         <h2 class="mb-3 text-3xl font-bold leading-8 tracking-tight">Create new blog post</h2>
         <form onSubmit={handleSubmitBlog}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <label style={{ fontWeight: 'bold' }} class="mb-3 text-2xl font-bold leading-8 tracking-tight">
+            <label
+              style={{ fontWeight: 'bold' }}
+              class="mb-3 text-2xl font-bold leading-8 tracking-tight"
+            >
               Title:
               <input
-                class="focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-10 ring-1 ring-slate-200 shadow-sm"
+                class="w-full appearance-none rounded-md py-2 pl-10 text-sm leading-6 text-slate-900 placeholder-slate-400 shadow-sm ring-1 ring-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 type="text"
                 name="title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
               />
             </label>
-            <label style={{ fontWeight: 'bold' }} class="mb-3 text-2xl font-bold leading-8 tracking-tight">
+            <label
+              style={{ fontWeight: 'bold' }}
+              class="mb-3 text-2xl font-bold leading-8 tracking-tight"
+            >
               Date:
               <input
-                class="focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-45 text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-10 ring-1 ring-slate-200 shadow-sm"
+                class="w-45 appearance-none rounded-md py-2 pl-10 text-sm leading-6 text-slate-900 placeholder-slate-400 shadow-sm ring-1 ring-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 type="date"
                 name="date"
                 value={date}
@@ -162,10 +161,13 @@ function Admin() {
               />
             </label>
             {errorMsg && <div style={{ color: 'red' }}>{errorMsg}</div>}
-            <label style={{ fontWeight: 'bold' }} class="mb-3 text-2xl font-bold leading-8 tracking-tight">
+            <label
+              style={{ fontWeight: 'bold' }}
+              class="mb-3 text-2xl font-bold leading-8 tracking-tight"
+            >
               Tags:
               <input
-              class="focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-10 ring-1 ring-slate-200 shadow-sm"
+                class="w-full appearance-none rounded-md py-2 pl-10 text-sm leading-6 text-slate-900 placeholder-slate-400 shadow-sm ring-1 ring-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 type="text"
                 name="tags"
                 value={tags}
@@ -173,30 +175,39 @@ function Admin() {
                 onChange={(e) => setTags(e.target.value)}
               />
             </label>
-            <label style={{ fontWeight: 'bold' }} class="mb-3 text-2xl font-bold leading-8 tracking-tight">
+            <label
+              style={{ fontWeight: 'bold' }}
+              class="mb-3 text-2xl font-bold leading-8 tracking-tight"
+            >
               Draft:
               <input
-              class="focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-10 ring-1 ring-slate-200 shadow-sm"
+                class="appearance-none rounded-md py-2 pl-10 text-sm leading-6 text-slate-900 placeholder-slate-400 shadow-sm ring-1 ring-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 type="checkbox"
                 name="draft"
                 checked={draft}
                 onChange={(e) => setDraft(e.target.checked)}
               />
             </label>
-            <label style={{ fontWeight: 'bold' }} class="mb-3 text-2xl font-bold leading-8 tracking-tight">
+            <label
+              style={{ fontWeight: 'bold' }}
+              class="mb-3 text-2xl font-bold leading-8 tracking-tight"
+            >
               Summary:
               <input
-              class="focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-10 ring-1 ring-slate-200 shadow-sm"
+                class="w-full appearance-none rounded-md py-2 pl-10 text-sm leading-6 text-slate-900 placeholder-slate-400 shadow-sm ring-1 ring-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 type="text"
                 name="summary"
                 value={summary}
                 onChange={(e) => setSummary(e.target.value)}
               />
             </label>
-            <label style={{ fontWeight: 'bold' }} class="mb-3 text-2xl font-bold leading-8 tracking-tight">
-            What we did:
+            <label
+              style={{ fontWeight: 'bold' }}
+              class="mb-3 text-2xl font-bold leading-8 tracking-tight"
+            >
+              What we did:
               <textarea
-                class="focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-10 ring-1 ring-slate-200 shadow-sm"
+                class="w-full appearance-none rounded-md py-2 pl-10 text-sm leading-6 text-slate-900 placeholder-slate-400 shadow-sm ring-1 ring-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 name="q1"
                 rows={4}
                 cols={50}
@@ -204,10 +215,13 @@ function Admin() {
                 onChange={(e) => setQ1(e.target.value)}
               ></textarea>
             </label>
-            <label style={{ fontWeight: 'bold' }} class="mb-3 text-2xl font-bold leading-8 tracking-tight">
-            Why we did it:
+            <label
+              style={{ fontWeight: 'bold' }}
+              class="mb-3 text-2xl font-bold leading-8 tracking-tight"
+            >
+              Why we did it:
               <textarea
-                class="focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-10 ring-1 ring-slate-200 shadow-sm"
+                class="w-full appearance-none rounded-md py-2 pl-10 text-sm leading-6 text-slate-900 placeholder-slate-400 shadow-sm ring-1 ring-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 name="q2"
                 rows={4}
                 cols={50}
@@ -215,10 +229,13 @@ function Admin() {
                 onChange={(e) => setQ2(e.target.value)}
               ></textarea>
             </label>
-            <label style={{ fontWeight: 'bold' }} class="mb-3 text-2xl font-bold leading-8 tracking-tight">
-            What tech we used:
+            <label
+              style={{ fontWeight: 'bold' }}
+              class="mb-3 text-2xl font-bold leading-8 tracking-tight"
+            >
+              What tech we used:
               <textarea
-                class="focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-10 ring-1 ring-slate-200 shadow-sm"
+                class="w-full appearance-none rounded-md py-2 pl-10 text-sm leading-6 text-slate-900 placeholder-slate-400 shadow-sm ring-1 ring-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 name="q3"
                 rows={4}
                 cols={50}
@@ -226,10 +243,13 @@ function Admin() {
                 onChange={(e) => setQ3(e.target.value)}
               ></textarea>
             </label>
-            <label style={{ fontWeight: 'bold' }} class="mb-3 text-2xl font-bold leading-8 tracking-tight">
-            What we learned:
+            <label
+              style={{ fontWeight: 'bold' }}
+              class="mb-3 text-2xl font-bold leading-8 tracking-tight"
+            >
+              What we learned:
               <textarea
-                class="focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-10 ring-1 ring-slate-200 shadow-sm"
+                class="w-full appearance-none rounded-md py-2 pl-10 text-sm leading-6 text-slate-900 placeholder-slate-400 shadow-sm ring-1 ring-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 name="q4"
                 rows={4}
                 cols={50}
@@ -237,20 +257,26 @@ function Admin() {
                 onChange={(e) => setQ4(e.target.value)}
               ></textarea>
             </label>
-            <label style={{ fontWeight: 'bold', paddingBottom: '10px' }} class="mb-3 text-2xl font-bold leading-8 tracking-tight">
+            <label
+              style={{ fontWeight: 'bold', paddingBottom: '10px' }}
+              class="mb-3 text-2xl font-bold leading-8 tracking-tight"
+            >
               Images source for blog:
               <input
-                class="focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-10 ring-1 ring-slate-200 shadow-sm"
+                class="w-full appearance-none rounded-md py-2 pl-10 text-sm leading-6 text-slate-900 placeholder-slate-400 shadow-sm ring-1 ring-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 type="text"
                 name="images"
                 style={{ paddingLeft: '10px' }}
                 onChange={(e) => setImages(e.target.value)}
               />
             </label>
-            <label style={{ fontWeight: 'bold' }} class="mb-3 text-2xl font-bold leading-8 tracking-tight">
+            <label
+              style={{ fontWeight: 'bold' }}
+              class="mb-3 text-2xl font-bold leading-8 tracking-tight"
+            >
               Additional Content:
               <textarea
-                class="focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-10 ring-1 ring-slate-200 shadow-sm"
+                class="w-full appearance-none rounded-md py-2 pl-10 text-sm leading-6 text-slate-900 placeholder-slate-400 shadow-sm ring-1 ring-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 name="content"
                 rows={4}
                 cols={50}
@@ -258,10 +284,13 @@ function Admin() {
                 onChange={(e) => setContent(e.target.value)}
               ></textarea>
             </label>
-            <label style={{ fontWeight: 'bold', paddingBottom: '10px' }} class="mb-3 text-2xl font-bold leading-8 tracking-tight">
+            <label
+              style={{ fontWeight: 'bold', paddingBottom: '10px' }}
+              class="mb-3 text-2xl font-bold leading-8 tracking-tight"
+            >
               Image source for Thumbnail:
               <input
-                class="focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-10 ring-1 ring-slate-200 shadow-sm"
+                class="w-full appearance-none rounded-md py-2 pl-10 text-sm leading-6 text-slate-900 placeholder-slate-400 shadow-sm ring-1 ring-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 type="text"
                 name="imgSrc"
                 style={{ paddingLeft: '10px' }}

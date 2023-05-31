@@ -14,7 +14,7 @@ export default function handler(req, res) {
   const weblink = `./data/blog/${formattedTitle}`
 
   // Append the new data to the existing data
-  projectsData.push({ title, description, imgSrc,  href})
+  projectsData.push({ title, description, imgSrc, href })
 
   // Write the updated data back to the file
   fs.writeFileSync(filePath, `export default ${JSON.stringify(projectsData)};`)
