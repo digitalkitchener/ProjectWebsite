@@ -16,7 +16,7 @@ q1: [${q1.map((q1s) => `'${q1s}'`).join(', ')}]
 q2: [${q2.map((q2s) => `'${q2s}'`).join(', ')}]
 q3: [${q3.map((q3s) => `'${q3s}'`).join(', ')}]
 q4: [${q4.map((q4s) => `'${q4s}'`).join(', ')}]
-images: [${images}]
+images: [${images.map((image) => `'${image}'`).join(', ')}]
 ---
 
 ${content}

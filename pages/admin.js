@@ -81,7 +81,10 @@ function Admin() {
       .get('q4')
       .split('\\n')
       .map((q4s) => q4s.trim())
-    const images = formData.get('images').split(' ')
+    const images = formData
+      .get('images')
+      .split(' ')
+      .map((image) => image.trim())
 
     if (!validateDate(date)) {
       return
