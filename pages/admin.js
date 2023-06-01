@@ -13,6 +13,7 @@ function Admin() {
   const [description, setDescription] = useState('')
   const [type, setType] = useState('')
   const [date, setDate] = useState('')
+  const [imgSrc, setImgSrc] = useState('')
   const [tags, setTags] = useState('')
   const [draft, setDraft] = useState(false)
   const [summary, setSummary] = useState('')
@@ -258,7 +259,7 @@ function Admin() {
               style={{ fontWeight: 'bold', paddingBottom: '10px' }}
               class="mb-3 text-2xl font-bold leading-8 tracking-tight"
             >
-              Images source for blog:
+              Images source for blog(seperate sources with ' '):
               <input
                 class="w-full appearance-none rounded-md py-2 pl-10 text-sm leading-6 text-slate-900 placeholder-slate-400 shadow-sm ring-1 ring-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 type="text"

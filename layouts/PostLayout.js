@@ -160,6 +160,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                 <div class="grid grid-cols-2 gap-4">
                   {images.map((image, index) => (
                     <Image
+                      key={index}
                       alt="Image preview"
                       src={image}
                       className="md:h-72% lg:h-100% object-cover object-center"
