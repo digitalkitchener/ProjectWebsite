@@ -235,7 +235,16 @@ A few things to note
 - FINAL NOTE VERY IMPORTANT
   when uploading the site to AWS, you MUST run prettier beforehand. In the main root folder, run the command 'npx prettier --write .' to reformat all the files. You will probably have to do the command 'npm install prettier' as well. After you run prettier there shouldn't be any issues when uploading to AWS, make sure you update the github repository and link AWS to the correct branch you're in.
 
-- When making a post:
+## Hatim's changes
+
+- Merged blogs and projects into one object
+- Updated the Admin page so that only one post creates a blog and project
+- Removed dark-mode
+- Formatted the blogs to include 4 questions and also have functionality for images
+- Cleaned all the pages and connected all links and socials
+- Formatted About page
+  
+- IMPORTANT NOTE When making a post:
   - Seperate tags with ','
   - Seperate images for blog with ' ' (an empty space)
-  - Newlines for individiual questions wiht '\n' between different lines
+  - Newlines for individiual questions with '\n' between different lines
